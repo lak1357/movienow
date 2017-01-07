@@ -1,0 +1,19 @@
+{
+  "name": "movienow",
+  "version": "1.0.0",
+  "description": "pet project for movie database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lak1357/movienow.git"
+  },
+  "author": "Lakshitha Herath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lak1357/movienow/issues"
+  },
+  "homepage": "https://github.com/lak1357/movienow#readme"
+}
