@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/lak1357/movienow/issues"
   },
-  "homepage": "https://github.com/lak1357/movienow#readme"
+  "homepage": "https://github.com/lak1357/movienow#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "jshint-stylish": "^2.2.1"
+  }
 }
