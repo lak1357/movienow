@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
  
 var auth = require('./auth.js');
-var userService = require('../service/userservice.js');
+var userService = require('../services/userservice.js');
  
 /*
  * Routes that can be accessed by any one
