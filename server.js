@@ -4,6 +4,10 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var app = express();
 
+var mongoose   = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/movienowdb'); // connect to our database
+
+
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
