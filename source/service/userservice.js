@@ -13,26 +13,41 @@ var userService = {
   },
 
   getOne: function (req, res) {
+
     var id = req.params.id;
-    var user = data[0]; // Spoof a DB call
-    res.json(user);
+    var user = new User();
+
+    User.find({ id: id }, function (err, user) {
+      if (err) {
+        res.send(err);
+      }
+      else {
+
+        if (user.length < 1) {
+          res.status(404).send();
+        }
+        else {
+          res.status(200).send(user);
+        }
+
+      }
+    });
   },
 
   create: function (req, res) {
-        var user = new User();
-        user.username = req.body.username;
-        user.password = req.body.password;
-        user.name = req.body.name;
-        user.age = req.body.age;
-        user.id = req.body.id;
+    var user = new User();
+    user.username = req.body.username;
+    user.password = req.body.password;
+    user.name = req.body.name;
+    user.age = req.body.age;
+    user.id = req.body.id;
 
-        // save the bear and check for errors
-        user.save(function(err) {
-            if (err)
-                res.send(err);
+    user.save(function (err) {
+      if (err)
+        res.send(err);
 
-            res.status(201).send(user);
-        });
+      res.status(201).send(user);
+    });
   },
 
   update: function (req, res) {
@@ -43,24 +58,18 @@ var userService = {
   },
 
   delete: function (req, res) {
+
     var id = req.params.id;
-    data.splice(id, 1) // Spoof a DB call
-    res.json(true);
+
+    User.remove({ id: id }, function (err) {
+      if (err) {
+        res.send(err);
+      }
+      else {
+        res.status(201).send();
+      }
+    });
   }
 };
-
-var data = [{
-  name: 'Lakshitha',
-  age: 28,
-  id: '1'
-}, {
-  name: 'Prageeth',
-  age: 29,
-  id: '2'
-}, {
-  name: 'Herath',
-  age: 30,
-  id: '3'
-}];
 
 module.exports = userService;
