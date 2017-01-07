@@ -14,10 +14,10 @@ var userService = {
 
   getOne: function (req, res) {
 
-    var id = req.params.id;
+    var userId = req.params.id;
     var user = new User();
 
-    User.find({ id: id }, function (err, user) {
+    User.find({ userId: userId }, function (err, user) {
       if (err) {
         res.send(err);
       }
@@ -40,7 +40,6 @@ var userService = {
     user.password = req.body.password;
     user.name = req.body.name;
     user.age = req.body.age;
-    user.id = req.body.id;
 
     user.save(function (err) {
       if (err)
@@ -51,17 +50,14 @@ var userService = {
   },
 
   update: function (req, res) {
-    var updateUser = req.body;
-    var id = req.params.id;
-    data[id] = updateUser // Spoof a DB call
-    res.json(updateUser);
+    res.status(404).json({message : "Not Implemented"});
   },
 
   delete: function (req, res) {
 
-    var id = req.params.id;
+    var userId = req.params.id;
 
-    User.remove({ id: id }, function (err) {
+    User.remove({ userId: userId }, function (err) {
       if (err) {
         res.send(err);
       }

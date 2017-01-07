@@ -3,10 +3,13 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var app = express();
+var autoIncrement = require('mongoose-auto-increment');
 
 var mongoose   = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/movienowdb'); // connect to our database
+var connection = mongoose.createConnection('mongodb://localhost:27017/movienowdb');
 
+autoIncrement.initialize(connection);
 
 
 app.use(logger('dev'));

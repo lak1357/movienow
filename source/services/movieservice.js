@@ -14,10 +14,10 @@ var movieService = {
 
   getOne: function (req, res) {
 
-    var id = req.params.id;
+    var movieId = req.params.id;
     var movie = new Movie();
 
-    Movie.find({ id: id }, function (err, movie) {
+    Movie.find({ movieId: movieId }, function (err, movie) {
       if (err) {
         res.send(err);
       }
@@ -40,7 +40,6 @@ var movieService = {
     movie.description = req.body.description;
     movie.duration = req.body.duration;
     movie.rating = req.body.rating;
-    movie.id = req.body.id;
 
     movie.save(function (err) {
       if (err)
@@ -57,9 +56,9 @@ var movieService = {
 
   delete: function (req, res) {
 
-    var id = req.params.id;
+    var movieId = req.params.id;
 
-    Movie.remove({ id: id }, function (err) {
+    Movie.remove({ movieId: movieId }, function (err) {
       if (err) {
         res.send(err);
       }
