@@ -4,11 +4,11 @@ var User = require('../models/user');
 var userService = {
 
   getAll: function (req, res) {
-    User.find(function (err, bears) {
+    User.find(function (err, users) {
       if (err)
         res.send(err);
 
-      res.json(bears);
+      res.json(users);
     });
   },
 
