@@ -6,7 +6,8 @@ var UserSchema   = new Schema({
     username: String,
     password: String,
     name: String,
-    age: Number
+    age: Number,
+    roles : [{name : String}]
 });
 
 UserSchema.plugin(autoIncrement.plugin, { model: 'User', field: 'userId' });

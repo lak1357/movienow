@@ -40,6 +40,7 @@ var userService = {
     user.password = req.body.password;
     user.name = req.body.name;
     user.age = req.body.age;
+    user.roles = req.body.roles;
 
     user.save(function (err) {
       if (err)
